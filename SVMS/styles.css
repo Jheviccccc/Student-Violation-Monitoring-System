@@ -1,0 +1,1034 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Palette derived from provided image (top -> bottom): rust, tan, olive, dark-forest, near-black */
+    --palette-rust: #9b4500;
+    --palette-tan:  #d99a48;
+    --palette-olive: #61693a;
+    --palette-forest:#152711;
+    --palette-deep:  #030905;
+
+    --primary-color: var(--palette-olive);
+    --primary-dark:  #4e5a2e;
+    --secondary-color: var(--palette-forest);
+    --accent-color: var(--palette-tan);
+    --accent-strong: var(--palette-rust);
+    --success-color: #10b981;
+    --warning-color: var(--palette-tan);
+    --danger-color: #ef4444;
+    --info-color: #3b82f6;
+    --light-bg: #f8fafc;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 22px 30px -8px rgba(0, 0, 0, 0.14), 0 10px 12px -6px rgba(0, 0, 0, 0.06);
+}
+
+/* Brand background using campus image with subtle overlay. Place your image at assets/images/campus-bg.png */
+body {
+    --svms-bg-path: url('assets/images/campus-bg.png');
+    --svms-overlay: rgba(255,255,255,0.78);
+    background-color: #f4f7fb;
+    background-image: linear-gradient(var(--svms-overlay), var(--svms-overlay)), var(--svms-bg-path);
+    background-size: cover, cover;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+.container-narrow {
+    max-width: 1200px;
+}
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--svms-card-bg, rgba(255,255,250,0.95));
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--palette-olive) 0%, var(--palette-forest) 100%);
+    color: white;
+    border-bottom: none;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+}
+
+.card-header.bg-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.card-header.bg-secondary {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+.card-header.bg-dark {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 1.25rem;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-color) 100%);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger-color) 0%, #dc2626 100%);
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.4);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--warning-color) 0%, #d97706 100%);
+    box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.table-hover tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5f9;
+    transform: scale(1.01);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+    border-radius: 0.5rem;
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Top banner using provided header image (place image at assets/images/header-banner.png) */
+.site-banner {
+    background-image: url('assets/images/header-banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.site-banner .banner-text {
+    display: none; /* text is part of the image; show only on small screens if needed */
+}
+
+.navbar, .nav-link {
+    color: #fff;
+}
+
+.nav-link {
+    transition: all 0.2s ease;
+    border-radius: 0.5rem;
+    margin: 0 0.25rem;
+    padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: var(--card-shadow-hover);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+}
+
+.dropdown-item {
+    border-radius: 0.5rem;
+    margin: 0.25rem 0;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f5f9;
+    transform: translateX(4px);
+}
+
+/* Notification styles */
+.notification-item {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid;
+    transition: all 0.2s ease;
+}
+
+.notification-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item.unread {
+    background-color: #eff6ff;
+    border-left-color: var(--primary-color);
+}
+
+.notification-item.info {
+    border-left-color: var(--info-color);
+}
+
+.notification-item.warning {
+    border-left-color: var(--warning-color);
+}
+
+.notification-item.danger {
+    border-left-color: var(--danger-color);
+}
+
+.notification-item.success {
+    border-left-color: var(--success-color);
+}
+
+/* Enhanced form styles */
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.2s ease;
+    padding: 0.625rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Stats cards */
+.text-bg-primary {
+    background: linear-gradient(135deg, var(--palette-olive) 0%, var(--palette-forest) 60%, var(--palette-tan) 100%) !important;
+}
+
+.text-bg-success {
+    background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%) !important;
+}
+
+.text-bg-warning {
+    background: linear-gradient(135deg, var(--warning-color) 0%, #d97706 100%) !important;
+}
+
+.text-bg-danger {
+    background: linear-gradient(135deg, var(--danger-color) 0%, #dc2626 100%) !important;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Alert enhancements */
+.alert {
+    border-radius: 0.75rem;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.5rem;
+}
+
+/* Page header */
+h4, h5 {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Carousel Styles */
+.carousel-content {
+    border-radius: 1rem;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.carousel-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.carousel-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+.carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-start,
+.carousel-fade .carousel-item-prev.carousel-item-end {
+    opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+    opacity: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.carousel-indicators .active {
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 1);
+}
+
+/* Hero-style carousel banners (large rounded cards) */
+.carousel-banner {
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem;
+    min-height: 160px;
+    color: #fff;
+}
+.carousel-banner .left {
+    flex: 1 1 65%;
+}
+.carousel-banner .right {
+    flex: 0 0 120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.carousel-banner h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.carousel-banner p { margin: 0; opacity: 0.95; }
+.carousel-banner .cta { margin-top: 0.75rem; display:inline-block; color: rgba(255,255,255,0.95); font-weight:600; }
+
+.carousel-banner.variant-1 { background: linear-gradient(90deg, var(--palette-tan), var(--palette-rust)); }
+.carousel-banner.variant-2 { background: linear-gradient(90deg, #6b8bf0, #8e6be0); }
+.carousel-banner.variant-3 { background: linear-gradient(90deg, #38c77b, #0a8b5a); }
+.carousel-banner.variant-4 { background: linear-gradient(90deg, #f97373, #ef4444); }
+
+.carousel-banner .icon-circle { width:96px; height:96px; border-radius:50%; background: rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-size:2.25rem; }
+
+/* Dashboard carousel variants (use palette; ensure readable text) */
+.carousel-content.variant-1 {
+    background: linear-gradient(135deg, var(--palette-tan) 0%, var(--palette-rust) 100%);
+    color: #fff;
+}
+.carousel-content.variant-2 {
+    background: linear-gradient(135deg, var(--palette-olive) 0%, var(--palette-forest) 100%);
+    color: #fff;
+}
+.carousel-content.variant-3 {
+    background: linear-gradient(135deg, var(--palette-forest) 0%, var(--palette-deep) 100%);
+    color: #fff;
+}
+.carousel-content.variant-light {
+    background: #ffffff;
+    color: #111;
+}
+
+.carousel-content .card-body {
+    /* inherit color from parent variant */
+    color: inherit;
+}
+
+/* Dashboard stat hero and tiles */
+.stat-hero {
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    color: var(--svms-text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, rgba(212,184,149,0.98) 0%, rgba(221,200,165,0.98) 100%);
+    box-shadow: 0 8px 20px rgba(35,32,27,0.04);
+    border: 1px solid var(--svms-card-border);
+}
+
+.stat-card {
+    border-radius: 0.9rem;
+    padding: 1.25rem;
+    color: var(--svms-text-dark);
+    box-shadow: 0 8px 18px rgba(35,32,27,0.04);
+    background: linear-gradient(180deg, rgba(255,255,250,0.95), rgba(255,255,245,0.95));
+    border: 1px solid rgba(35,32,27,0.04);
+}
+.stat-card.green { border-left: 6px solid var(--palette-olive); }
+.stat-card.tan   { border-left: 6px solid var(--palette-tan); }
+.stat-card.rust  { border-left: 6px solid var(--palette-rust); }
+
+/* Chart card headers */
+.chart-header {
+    background: linear-gradient(90deg, var(--palette-olive), var(--palette-tan));
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+    font-weight: 700;
+}
+
+/* Table / list card header dark variant */
+.card-header.bg-dark {
+    background: linear-gradient(90deg, rgba(6,10,8,0.95), rgba(21,27,18,0.95));
+}
+
+/* Severity badges mapped to palette */
+.severity-high,
+.badge.severity-high,
+span.severity-high {
+    color: #fff !important;
+    background-color: var(--palette-rust) !important;
+    font-weight: 700;
+}
+
+.severity-medium,
+.badge.severity-medium,
+span.severity-medium {
+    color: #000 !important;
+    background-color: var(--palette-tan) !important;
+    font-weight: 700;
+}
+
+.severity-low,
+.badge.severity-low,
+span.severity-low {
+    color: #fff !important;
+    background-color: var(--palette-olive) !important;
+    font-weight: 700;
+}
+
+/* Card body accents and small link buttons inside stat cards */
+.stat-card .link-button {
+    background: rgba(255,255,255,0.95);
+    color: inherit;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.6rem;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Ensure 'Manage' buttons inside stat cards use black text for readability */
+.stat-card .btn,
+.stat-card .btn i {
+    color: #000 !important;
+    background: rgba(0,0,0,0.06) !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+}
+.stat-card .btn:hover {
+    background: rgba(0,0,0,0.12) !important;
+    color: #000 !important;
+}
+
+
+/* Severity color coding - Enhanced text colors */
+.severity-high,
+.badge.severity-high,
+span.severity-high {
+    color: #ffffff !important;
+    background-color: #dc3545 !important;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.severity-medium,
+.badge.severity-medium,
+span.severity-medium {
+    color: #000000 !important;
+    background-color: #ffc107 !important;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.severity-low,
+.badge.severity-low,
+span.severity-low {
+    color: #ffffff !important;
+    background-color: #6c757d !important;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Severity text without badges */
+.text-severity-high {
+    color: #dc3545 !important;
+    font-weight: 700;
+}
+
+.text-severity-medium {
+    color: #f59e0b !important;
+    font-weight: 700;
+}
+
+.text-severity-low {
+    color: #6c757d !important;
+    font-weight: 700;
+}
+
+/* Severity in select options (for better visibility) */
+select option[value="high"] {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+select option[value="medium"] {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+select option[value="low"] {
+    color: #6c757d;
+    font-weight: 600;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: #fff !important;
+        font-size: 12pt;
+    }
+
+    .no-print, .navbar, .btn, .card-header .btn, .report-filters {
+        display: none !important;
+    }
+
+    .container, .container-narrow {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .card {
+        border: 1px solid #dee2e6 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+
+    .table {
+        font-size: 10pt !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+    }
+
+    .table th, .table td {
+        border: 1px solid #dee2e6 !important;
+        padding: 0.4rem;
+    }
+
+    .table-responsive {
+        overflow: visible !important;
+    }
+
+    .print-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #343a40;
+        padding-bottom: 1rem;
+    }
+
+    .print-header h4 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .print-date {
+        display: block !important;
+        text-align: right;
+        font-size: 10pt;
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: #000 !important;
+    }
+
+    .badge {
+        border: 1px solid #000;
+        padding: 0.3em 0.5em;
+        color: #000 !important;
+        background-color: #fff !important;
+    }
+}
+
+.d-print-block { display: none; }
+@media print { .d-print-block { display: block !important; } }
+
+.d-print-none { display: block; }
+@media print { .d-print-none { display: none !important; } }
+
+/* Notifications: ensure dropdown and items appear in front */
+#notification-dropdown.dropdown-menu {
+    position: absolute !important;
+    z-index: 3000 !important;
+    right: 0 !important;
+    left: auto !important;
+    min-width: 360px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.navbar {
+    z-index: 2000; /* keep navbar above main content */
+}
+
+.notification-item {
+    position: relative;
+    z-index: 3001;
+}
+
+/* If dropdown is clipped by parent with overflow, fallback to fixed positioning */
+@media (max-width: 1199px) {
+    #notification-dropdown.dropdown-menu {
+        position: fixed !important;
+        top: 60px !important;
+        right: 12px !important;
+        left: auto !important;
+        max-height: 55vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Themed Background and Container Styling for SVMS */
+:root{
+    --svms-green: var(--palette-olive);
+    --svms-dark: var(--palette-forest);
+    --svms-accent: var(--palette-tan);
+    --svms-rust: var(--palette-rust);
+    --svms-bg: #f4f7fb;
+}
+
+body {
+    background-color: var(--svms-bg);
+    background-image: 
+        repeating-linear-gradient(45deg, rgba(3,77,43,0.02) 0 2px, transparent 2px 12px),
+        linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.6));
+    background-attachment: fixed;
+    color: #212529;
+}
+
+.container {
+    background: linear-gradient(180deg, rgba(212,184,149,0.98), rgba(212,184,149,0.95));
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(16,24,40,0.06);
+    padding: 1.25rem;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(27,23,18,0.06);
+    color: var(--svms-text-dark);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+/* Decorative accent bar for print/headers */
+.header-accent {
+    height: 6px;
+    background: linear-gradient(90deg, var(--svms-blue), var(--svms-accent));
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+@media print {
+    body { background: #fff !important; }
+    .container { box-shadow: none !important; border-radius: 0 !important; }
+}
+
+/* NAVBAR AND GLOBAL THEME OVERRIDES - green blended theme */
+@keyframes svmsGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar.bg-primary {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 50%, rgba(21,39,17,0.95) 100%);
+    background-size: 200% 100%;
+    animation: svmsGradientShift 10s ease-in-out infinite;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.navbar {
+    color: #fff;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+.navbar .navbar-brand {
+    color: rgba(255,255,255,0.98);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.navbar .nav-link {
+    color: rgba(255,255,255,0.92);
+    margin: 0 0.25rem;
+    padding: 0.45rem 0.9rem !important;
+    transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    color: #fff;
+    background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    transform: translateY(-2px);
+    border-radius: 0.5rem;
+}
+
+.navbar .dropdown-menu {
+    background: linear-gradient(180deg, rgba(8,61,43,0.95), rgba(7,39,31,0.95));
+    color: #fff;
+    border: none;
+    box-shadow: 0 12px 30px rgba(3,37,25,0.35);
+    backdrop-filter: blur(6px);
+}
+
+.navbar .dropdown-item {
+    color: rgba(255,255,255,0.95);
+    border-radius: 0.45rem;
+}
+
+.navbar .dropdown-item:hover {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--palette-olive) 0%, var(--palette-forest) 60%, var(--palette-tan) 100%);
+    border: none;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(6,55,38,0.18);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(6,55,38,0.22);
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: rgba(255,255,255,0.7);
+}
+
+/* Make badges in navbar subtle */
+.navbar .badge {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Ensure dropdown notification badge is visible */
+.position-absolute.badge.bg-danger {
+    transform: translate(30%, -30%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Footer links and small controls */
+footer, .small, .text-muted {
+    color: rgba(15,40,30,0.85) !important;
+}
+
+/* Beige-mode overrides (appended to provide a lighter, warm theme)
+   Replaces the darker overrides with a beige-friendly palette and
+   ensures components remain readable and print-friendly. */
+:root {
+    --svms-bg-beige: #D4B895; /* main beige from provided palette */
+    --svms-card-bg: rgba(255,255,250,0.88);
+    --svms-card-border: rgba(19,11,6,0.06);
+    --svms-text-dark: #2b2b21; /* warm charcoal */
+    --svms-text-muted: rgba(43,43,33,0.65);
+}
+
+/* Apply beige background and overall text color */
+body {
+    background-color: var(--svms-bg-beige) !important;
+    /* subtle parchment texture overlay using campus-bg if present */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.28)), var(--svms-bg-path);
+    color: var(--svms-text-dark) !important;
+}
+
+/* Main containers: warm translucent cards */
+.container, .container-narrow {
+    background: var(--svms-card-bg) !important;
+    border: 1px solid var(--svms-card-border) !important;
+    color: var(--svms-text-dark) !important;
+}
+
+/* Cards with light shadow and subtle border */
+.card {
+    background: var(--svms-card-bg, rgba(255,255,250,0.95)) !important;
+    border: 1px solid var(--svms-card-border, rgba(19,11,6,0.04)) !important;
+    color: var(--svms-text-dark) !important;
+    box-shadow: 0 8px 18px rgba(35,32,27,0.06) !important;
+}
+
+/* Card headers and chart headers use warm palette but dark text for readability */
+.card-header, .chart-header {
+    background: linear-gradient(135deg, rgba(217,154,72,0.95), rgba(155,69,0,0.92)) !important;
+    color: var(--svms-text-dark) !important;
+}
+
+/* Buttons: keep white text for colored buttons, dark text for light buttons */
+.btn:not(.btn-outline-light) { color: #fff !important; }
+.btn-outline-light { color: var(--svms-text-dark) !important; border-color: rgba(35,32,27,0.08); }
+
+/* Navbar tone: olive/forest still used but warmer and slightly transparent */
+.navbar, .navbar .dropdown-menu {
+    background: linear-gradient(90deg, rgba(97,105,58,0.96), rgba(21,39,17,0.92)) !important;
+}
+
+/* Carousel and hero variants: ensure text is readable on lighter cards */
+
+/* Ensure all carousel content and banners use beige background and dark text by default
+   so pages using the carousel (dashboard, students, violations, records, reports, stats, email) match the site theme. */
+.carousel-content,
+.carousel-banner,
+.carousel-content.variant-1,
+.carousel-content.variant-2,
+.carousel-content.variant-3,
+.carousel-content.variant-4,
+.carousel-banner.variant-1,
+.carousel-banner.variant-2,
+.carousel-banner.variant-3,
+.carousel-banner.variant-4 {
+    background: linear-gradient(135deg, var(--svms-bg-beige) 0%, rgba(212,184,149,0.92) 100%) !important;
+    color: var(--svms-text-dark) !important;
+}
+
+.carousel-content .card-body,
+.carousel-banner .left,
+.carousel-banner .right {
+    color: var(--svms-text-dark) !important;
+}
+
+.carousel-banner .icon-circle { background: rgba(0,0,0,0.06) !important; color: rgba(0,0,0,0.6); }
+.carousel-banner .cta { color: var(--svms-text-dark) !important; font-weight: 700; }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0%); /* keep default look suitable on light/beige backgrounds */
+}
+
+/* Logged-in user label in navbar: beige text */
+.navbar .user-display {
+    color: #F3E6D7 !important; /* lighter beige for visibility */
+    text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+.navbar .user-display .badge {
+    background: #D4B895 !important; /* filled beige badge */
+    color: #1b1b15 !important; /* dark text inside badge */
+    border: 1px solid rgba(27,27,21,0.06) !important;
+}
+
+/* Logout button: beige text to match user label */
+.navbar .logout-btn {
+    color: #F3E6D7 !important;
+    border-color: rgba(212,184,149,0.18) !important;
+    background: transparent !important;
+}
+.navbar .logout-btn i { color: #F3E6D7 !important; }
+.navbar .logout-btn:hover, .navbar .logout-btn:focus {
+    background: rgba(212,184,149,0.12) !important;
+    color: #e0c59a !important;
+}
+
+/* Severity badges: prefer dark text on light backgrounds where applicable */
+.severity-medium, .badge.severity-medium, span.severity-medium {
+    color: #111 !important;
+}
+
+/* Small muted text for secondary details */
+.text-muted, small { color: var(--svms-text-muted) !important; }
+
+/* Print fallback: ensure print stays crisp and light */
+@media print {
+    body { background-color: #fff !important; color: #000 !important; }
+    .container, .card { background: #fff !important; color: #000 !important; }
+}
+
+/* Make navbar fixed to top and avoid content overlap */
+:root {
+    --svms-navbar-height: 64px;
+}
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4000;
+    width: 100%;
+}
+/* Add top padding so page content (including header/banner) isn't hidden under the fixed navbar */
+body {
+    padding-top: var(--svms-navbar-height);
+}
+/* Slightly reduce padding on small screens */
+@media (max-width: 576px) {
+    :root { --svms-navbar-height: 56px; }
+}
+
+/* Ensure dropdowns and fixed notifications remain visible above content */
+#notification-dropdown.dropdown-menu {
+    z-index: 4500 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .container { padding: 1rem; }
+    .site-banner { height: 110px; }
+}
+
+@media (max-width: 992px) {
+    :root { --svms-navbar-height: 60px; }
+    .site-banner { height: 100px; }
+    .carousel-banner { padding: 1.25rem; min-height: 140px; }
+    .carousel-banner .left { flex: 1 1 60%; }
+    .carousel-banner .right { flex: 0 0 80px; }
+}
+
+@media (max-width: 768px) {
+    :root { --svms-navbar-height: 56px; }
+    body { padding-top: var(--svms-navbar-height); }
+    .container { padding: 0.75rem; }
+    .site-banner { height: 88px; }
+    .carousel-banner { flex-direction: column; gap: 0.75rem; align-items: flex-start; padding: 1rem; }
+    .carousel-banner .right { display: none; }
+    .stat-hero { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .stat-hero .card-body, .stat-hero > * { width: 100%; }
+    .stat-card { padding: 1rem; }
+    .stat-card .link-button, .stat-card .btn { width: 100%; }
+    .navbar .user-display { display: none; } /* hide long user label on small screens */
+}
+
+@media (max-width: 576px) {
+    :root { --svms-navbar-height: 52px; }
+    .site-banner { height: 72px; }
+    .container-narrow { padding: 0.5rem; }
+    .card { border-radius: 0.6rem; }
+    .carousel-banner h3 { font-size: 1rem; }
+    .carousel-banner p { font-size: 0.9rem; }
+    .btn { padding: 0.45rem 0.9rem; }
+    .navbar .logout-btn { padding: 0.25rem 0.5rem; }
+}
+
+/* Improve touch targets for dropdown items on mobile */
+@media (max-width: 768px) {
+    .dropdown-item { padding: 0.9rem 1rem; }
+}
+
+/* Dashboard carousel: use beige background for variants to match site beige-mode */
+.carousel-content.variant-1,
+.carousel-content.variant-2,
+.carousel-content.variant-3,
+.carousel-banner.variant-1,
+.carousel-banner.variant-2,
+.carousel-banner.variant-3 {
+    background: linear-gradient(135deg, var(--svms-bg-beige) 0%, rgba(212,184,149,0.92) 100%) !important;
+    color: var(--svms-text-dark) !important;
+}
+
+.carousel-content.variant-1 .card-body,
+.carousel-content.variant-2 .card-body,
+.carousel-content.variant-3 .card-body,
+.carousel-banner.variant-1 .left,
+.carousel-banner.variant-2 .left,
+.carousel-banner.variant-3 .left {
+    color: var(--svms-text-dark) !important;
+}
+
+
